@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecții</title>
+</head>
+<body>
+
+
+    <header>
+        <a href="home.html" class="brand">Informatica</a>
+        <div class="menu-btn"></div>
+        <nav class="navigation" id="main-nav">
+          <div class="navigation-items">
+            <a href="home.html">Acasa</a>
+            <div class="dropdown">
+                <a href="#">Lectii</a>
+                <div class="dropdown-content">
+                    <a href="#">Subprograme</a>
+                    <a href="#">Recursivitate</a>
+                    <a href="#">Structuri</a>
+                </div>
+            </div>
+
+            <style>
+                .dropdown {
+                  position: relative;
+                  display: inline-block;
+                }
+                
+                .dropdown-content {
+                  display: none;
+                  position: absolute;
+                  background-color: #778da9;
+                  min-width: 160px;
+                  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+                  padding: 12px 5px 16px 5px;
+                  z-index: 1;
+                }
+                
+                .dropdown:hover .dropdown-content {
+                  display: block;
+                }
+            </style>
+                
+        </div>
+        </nav>
+      </header>
+
+      <section class="no1">
+        <div id="cuprins">
+            <div class="cuprins">
+                <h1>Cuprins</h1>
+                <ol>
+                    <li class="ol"><a href="#subprograme">Subprograme</a>
+                            <ul>
+                                <li><a href="#subanat">Anatomia unei funcții C++</a></li>
+                                <li><a href="#subdef">Definirea si declararea unei funcții C++</a></li>
+                                <li><a href="#subvar">Declararea variabilelor</a></li>
+                                <li><a href="#substiv">Cum funcționeaza stiva?</a></li>
+                            </ul>
+                    </li>
+                    <li class="ol"><a href="#recursivitate">Recursivitate</a>
+                    </li>
+                   
+                </li>
+                <li class="ol"><a href="#structuri">Structuri de date neomogene</a>
+            </li>    
+            </ol>
+            </div>
+        </div>
+      </section>
+
+<section id="subprograme">
+  <h1 style="padding-top: 50px;">Subprograme</h1>
+  <p>Un <span style="font-weight: bold;">subprogram</span> este o colecție de tipuri de date, variabile, instrucțiuni care îndeplinesc o anumită sarcină (calcule, citiri, afișări), atunci când este apelat de un program sau de un alt subprogram.</p>
+  <p>Definiţia unui subprogram reprezintă de fapt descrierea unui proces de calcul cu ajutorul variabilelor virtuale (parametri formali) iar apelul unui subprogram nu este altceva decât execuţia procesului de calcul pentru cazuri concrete<br>(cu ajutorul parametrilor reali, (efectivi, actuali) ).</p>
+<p style="padding-bottom: 30px;">Pentru a înțelege conceptul de subprogram, să considerăm două probleme:
+
+</p>
+<h3>Problema 1</h3>
+<p>Se dau două numere naturale <span style="color:#ca0079; font-weight: bold;">n</span> și <span style="color:#ca0079; font-weight: bold;">m</span>. Să se determine suma dintre oglinditul lui <span style="color:#ca0079; font-weight: bold;">n</span> și oglinditul lui <span style="color:#ca0079; font-weight: bold;">m</span>.</p>
+<p>Până acum, pentru a rezolva această problemă, trebuia să determinăm, folosind două secvențe de program aproape identice, oglinditele celor două numere, iar apoi să facem suma. O soluție mai simplă este să construim un subprogram care determină oglinditul unui număr natural oarecare, să-l apelăm de două ori pentru a determina oglinditul lui <span style="color:#ca0079; font-weight: bold;">n</span> și al lui <span style="color:#ca0079; font-weight: bold;">m</span>, apoi să facem suma rezultatelor.</p>
+<h3>Problema 2</h3>
+<p>Se citește un tablou cu <span style="color:#ca0079; font-weight: bold;">n</span> elemente, numere întregi. Să se ordoneze crescător elementele tabloului și apoi să se afișeze.</p>
+<p>Putem rezolva această problemă, în mai multe moduri, folosind cunoștințe pe care le avem deja. Dacă dorim să o rezolvăm folosind subprograme, vom construi trei subprograme:</p>
+<ul style="list-style: inside;">
+  <li><span style="color:#415a77; font-weight: bold;">citire</span> - care citește elementele vectorului</li>
+  <li><span style="color:#415a77; font-weight: bold;">sortare</span> - care ordonează elementele vectorului</li>
+  <li><span style="color:#415a77; font-weight: bold;">afisare</span> - care afișează elementele vectorului</li>
+</ul>
+<p>Astfel, programul care rezolvă problema constă în apelul celor trei subprograme, în odinea potrivită. Am reușit să descompunem rezolvarea unei probleme complexe în mai multe subprobleme, mai simple, care pot fi rezolvate de mai multe persoane, dacă este cazul.</p>
+<p>Constatăm că utilizarea subprogramelor are câteva avantaje:</p>
+<ul style="text-align: left;">
+  <li><span style="color:#415a77; font-weight: bold;">reutilizarea codului</span> – după ce am scris un subprogram îl pute apela de oricâte ori este nevoie;</li>
+  <li><span style="color:#415a77; font-weight: bold;">modularizarea programelor</span> – subprogramele ne permit să împărțim problema dată în mai multe subprobleme, mai simple;</li>
+  <li><span style="color:#415a77; font-weight: bold;">reducerea numărului de erori</span> care pot să apară în scrierea unui program</li>
+  <li><span style="color:#415a77; font-weight: bold;">depistarea cu ușurință a erorilor</span> – fiecare subprogram va fi verificat la crearea sa, apoi verificăm modul în care apelăm subprogramele</li>
+</ul>
+
+<div id="subanat">
+  <h2>Anatomia unei funcții C++</h2>
+  <h3>Problema 1</h3>
+  <h4 style="font-weight: normal;">Se dau două numere naturale <span style="color:#ca0079; font-weight: bold;">n</span> și <span style="color:#ca0079; font-weight: bold;">m</span>. Să se determine suma dintre oglinditul lui <span style="color:#ca0079; font-weight: bold;">n</span> și oglinditul lui <span style="color:#ca0079; font-weight: bold;">m</span>.</h4>
+<p>Programul următor rezolvă problema de mai sus.</p>
+  
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td>#include &#8249;iostream&#8250;</span></td></tr>
+  <tr><td><span style="color:#ca0079">using namespace</span> std;</td></tr>
+  <tr><td><span style="color:#ca0079">int</span> ogl(<span style="color:#ca0079">int</span> x)</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>int</span> r = 0;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">do</span></td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r = 10 * r + x % 10;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x /= 10;</td></tr>
+  <tr><td>&#125;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">while</span>(x != 0);</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return</span> r;</td></tr>
+  <tr><td>&#125;</td></tr>
+  <tr><td>int main()&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int</span> n, m;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin &#8249;&#8249; n &#8249;&#8249; m;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &#8250;&#8250; ogl(n) + ogl(m);</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return</span> 0;</td></tr>
+  <tr><td>&#125;</td></tr>
+</table>
+<p>Funcția care calculează oglinditul unui număr este <span style="color:#ca0079; font-weight: bold;">int ogl(int x)</span>.</p>
+<h3>Antetul Funcției</h3>
+<p>Funcția are un <span style="font-weight: bold;">antet: <span style="color:#ca0079; font-weight: bold;">int ogl(int x)</span>, din care deducem că:</p>
+<ul style="list-style: inside; text-align: left;">
+  <li>funcția se numeste <span style="color:#ca0079; font-weight: bold;">ogl;</span></li>
+  <li>funcția are un parametru, <span style="color:#ca0079; font-weight: bold;">x</span>, de tip <span style="color:#ca0079; font-weight: bold;">int</span>. Parametrul este important, deoarece prin el se precizează care este numărul pentru care se determină oglinditul:<ul style="padding-left: 30px;">
+    <li>o funcție poate avea mai mulți parametri;
+    </li>
+    <li>parametrii care apar în antetul funcției se numesc <span style="font-weight: bold;">parametri formali;</span>
+    </li>
+    <li>parametrii unei funcții se mai numesc și <span style="font-weight: bold;">argumente</span>
+    </li>
+  </ul></li>
+  <li>funcția are un anumit tip, aici <span style="color:#ca0079; font-weight: bold;">int</span>, care precizează care este tipul rezultatului;
+  </li>
+
+</ul>
+<h3>Corpul Funcției</h3>
+<p>Funcția are un bloc de instrucțiuni, <span style="font-weight: bold;">corpul funcției</span>, delimitat de acolade<span style="color:#ca0079; font-weight: bold;"> {}</span> care precizează operațiile prin care se obține rezultatul.</p>
+<p>Mai mult:</p>
+<ul style="list-style: inside; text-align: left;">
+  <li>corpul funcției poate avea propriile variabile (aici <span style="color:#ca0079; font-weight: bold;">r</span>);
+<ul style="padding-left: 30px;">
+    <li>aceste variabile se numesc <span style="font-weight: bold;">variabile locale</span>
+    </li>
+    <li>în corpul funcției, parametrul se comportă ca o variabilă locală;
+    </li>
+    <li>nu putem avea o variabilă locală cu același identificator ca parametrul;
+    </li>
+    <li>în corpul funcției nu se cunosc valorile parametrilor formali. Funcția trebuie să determine rezultatul corect indiferent de valoarea lor;</li>
+  </ul></li>
+  <li>rezultatul determinat în cadrul funcției este întors în programul apelant prin instrucțiunea <span style="font-weight: bold;">return.</span>Rezultatul este calculat în mod obișnuit în variabila<span style="color:#415a77; font-weight: bold;"> r.</span>Prin instrucțiunea <span style="font-weight: bold;">return r;</span>, valoarea curentă a variabilei r este returnată în programul apelant;</li>
+</ul></li>
+
+<h2>Apelul Funcției</h2>
+<p>In funcția <span style="font-weight: bold; color: #ca0079;">main </span>găsim<span style="font-weight: bold;"> apelul</span> funcției<span style="color:#ca0079;font-weight: bold;"> ogl</span>:</p>
+<ul style="list-style: inside; text-align: left;">
+  <li>apelul funcției se face într-o expresie:<span style="color:#ca0079; font-weight: bold;">cout &#171; ogl(n) + ogl(m);</span>. Pentru operația de adunare, operanzii vor fi rezultatele apelurilor celor două funcții;</li>
+  <li>parametrii <span style="font-weight: bold; color: #ca0079;">n</span> respectiv <span style="font-weight: bold; color: #ca0079;">m</span>, întâlniți în apel, se numesc <span style="font-weight: bold;"> r.</span>Prin instrucțiunea <span style="font-weight: bold;">parametri efectivi</span> sau <span style="font-weight: bold;">parametri actuali.</span> Valoarile parametrilor actuali sunt cunoscute - valorile citite pentru cele două variabile;</li>
+</ul>
+
+
+
+<h3>Problema 2</h3>
+  <h4 style="font-weight: normal;">Se citește un tablou cu elemente numere întregi. Să se ordoneze crescător elementele tabloului și apoi să se afișeze.
+  </h4>
+<p>Programul următor rezolvă problema de mai sus.</p>
+  
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td>#include &#8249;iostream&#8250;</span></td></tr>
+  <tr><td><span style="color:#ca0079">using namespace</span> std;</td></tr>
+  <tr><td><span style="color:#ca0079">void</span>citire(<span style="color:#ca0079">int</span> & n, <span style="color:#ca0079">int</span> x[])</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>cin</span> &#8249;&#8249; n;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">for</span>(<span style="color:#ca0079">int</span> i = <span style="color:#07a72a">0</span> ; i &#8249; n ; ++ i )</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>cin</span> &#8249;&#8249; n;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  <tr><td><span style="color:#ca0079">void</span>sortare(<span style="color:#ca0079">int</span> n, <span style="color:#ca0079">int</span> x[])</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">bool</span> sortat = <span style="color:#0d00ca">false</span> </td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">while</span> (! sortat)</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortat = <span style="color:#0d00ca">true</span>;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">for</span>( <span style="color:#ca0079">int</span> i = <span style="color:#07a72a">0</span> ; i &#8249; - <span style="color:#07a72a">1</span> ; i++ )</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">if</span>( x[i] &#8250; x[i+1] )</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int</span>  aux = x[i];</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x[i] = x[i+1] ;</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; x[i+1] = aux ;</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortat = <span style="color:#0d00ca">true</span>;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  <tr><td><span style="color:#ca0079">void</span>afisare(<span style="color:#ca0079">int</span> n, <span style="color:#ca0079">int</span> x[])</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">for</span>(<span style="color:#ca0079">int</span> i = <span style="color:#07a72a">0</span> ; i &#8249; n ; ++ i )</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>cout</span> &#8249;&#8249; x[i] &#8249;&#8249; "";</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  <tr><td><span style="color:#ca0079">int</span>main()</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int</span> k, v[<span style="color:#07a72a">1005</span>];<td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;citire(k , v );</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sortare(k , v );</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;afisare(k , v );</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return</span> <span style="color:#07a72a">0</span>;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  
+</table>
+<p>Față de cele de mai sus, putem observa următoarele:</p>
+<ul style="list-style: inside; text-align: left;">
+  <li>funcțiile citire</span>, <span style="color:#ca0079; font-weight: bold;">sortare</span> și <span style="color:#ca0079; font-weight: bold;">afisare</span> nu returnează valori și au un tip al rezultatului special, <span style="color:#ca0079; font-weight: bold;">void</span>. Tipul <span style="color:#ca0079; font-weight: bold;">void</span> este un tip de date care nu conține valori și poate fi folosit tocmai în asemenea situații. Am putea spune că sunt de tip procedură;</li>
+  <li>apelul acestor funcții se face în instrucțiuni de sine stătătoare;
+  </li>
+    <li>funcțiile au câte doi parametri, numărul de elemente ale tabloului și tabloul propriu zis. Pentru parametrul formal de tip tablou nu trebuie să fie precizată dimensiunea declarată a tabloului;
+    </li>
+    <li>numele parametrilor actuali nu trebuie să fie aceiași cu cei ai parametrilor formali. Trebuie însă să corespundă numărul lor, tipul lor și ordinea;
+    </li>
+  </ul>
+</div>
+<div id="subdef">
+  <h3 style="padding-top: 50px;">Definirea și declararea unei funcții C/C++</h3>
+<p>Una dintre regulile limbajului C/C++ este următoarea, și o știm foarte bine pentru variabile: <span style="color:#415a77; font-weight: bold;">Orice identificator, pentru a putea fi folosit, trebuie să fie mai întâi declarat</span>. Această regulă este valabilă și pentru funcții, astfel că identificăm următoarele noțiuni, aparent asemănătoare. Buna lor înțelegere ne va scuti de numeroase erori!!</p>
+<ul>
+  <li> <span style="color:#415a77; font-weight: bold;">definirea unei funcții</span> înseamnă scrierea ei în întregime; este alcătuită din antetul funcției și din corpul funcției;</li>
+  <li><span style="color:#415a77; font-weight: bold;">declararea unei funcții </span>înseamnă să-i anunțăm existența. Declararea funcției se face într-o instrucțiune declarativă și se mai numește și prototip al funcției.</li>
+</ul>
+<p>Să considerăm următorul exemplu, fără însemnătate practică:</p>
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td>#include &#8249;iostream&#8250;</span></td></tr>
+  <tr><td><span style="color:#ca0079">using namespace</span> std;</td></tr>
+  <tr><td><span style="color:#ca0079">void</span> F()</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &#8249;&#8249; <span style="color:#ca0079">"Salut"</span>;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  <tr><td><span style="color:#ca0079">int</span> main()&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F();</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return</span> 0;</td></tr>
+  <tr><td>&#125;</td></tr>
+</table>
+<p>Programul este sintactic corect. Partea:</p>
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td><span style="color:#ca0079">void</span> F()</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &#8249;&#8249; <span style="color:#ca0079">"Salut"</span>;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+</table>
+<p>reprezintă definirea funcției <span style="color:#ca0079">F()</span>, dar tot aici are loc și declararea. Dacă schimbăm ordinea funcțiilor <span style="color:#ca0079">F()</span> și <span style="color:#ca0079">main()</span> obținem:</p>
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td>#include &#8249;iostream&#8250;</span></td></tr>
+  <tr><td><span style="color:#ca0079">using namespace</span> std;</td></tr>
+  <tr><td><span style="color:#ca0079">int</span> main()</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F();</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return</span> 0;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  <tr><td><span style="color:#ca0079">void</span> F()</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &#8249;&#8249; <span style="color:#ca0079">"Salut"</span>;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+</table>
+<p>
+  De data aceasta programul nu mai este corect.</p>
+</div>
+
+<div id="subvar">
+  <h2 style="padding-top: 50px;">Declararea variabilelor</h2>
+  <h3 style="padding-top: 15px;">Generalități</h3>
+  <p>După cum știm, în C++ variabilele despre care am învățat până acum trebuie declarate și odată cu declararea li se alocă în memorie spațiu în conformitate cu tipul lor. Întrebarea este: “Unde putem declara variabile și prin ce diferă acestea?”.  </p>
+  <p>Sistemul de operare alocă fiecărui program, în memoria RAM, trei zone în care putem memora variabile:  </p>
+<ul>
+  <li>zona de date</li>
+  <li>zona de stivă
+  </li>
+  <li>zona liberă (heap)
+  </li>
+</ul>
+<p>O variabilă se caracterizează prin:</p>
+<ul>
+  <li>clasa de memorare</li>
+  <li>vizibilitate</li>
+  <li>durata de viață
+  </li>
+  <li>tipul variabilei
+  </li>
+</ul>
+<p>Să nu uităm, de asemenea, identificatorul variabilei! Dar nu toate variabilele au un identificator, așa cum vom vedea cândva!
+</p>
+<p><span style="font-weight: bold;">Clasa de memorare</span> reprezintă zona de memorie unde poate fi alocat spațiu pentru o variabilă. Ea poate fi: zona de date, zona de stivă, heap-ul sau un registru al procesorului – o memorie specială, de mici dimensiuni, foarte rapidă existentă în procesor (CPU).</p>
+<p><span style="font-weight: bold;">Vizibilitatea</span> unei variabile precizează zona din codul sursă (liniile programului C++) unde se poate folosi respectiva variabilă și poate fi:</p>
+<ul>
+  <li><span style="font-weight: bold;">la nivel de bloc</span> – variabila este vizibilă numai într-un bloc al programului</li>
+  <li><span style="font-weight: bold;">la nivel de fișier </span>– variabila este vizibilă în tot fișierul sursă cu care lucrăm</li>
+  <li><span style="font-weight: bold;">la nivel de clasă</span> – specific programării orientate pe obiecte</li>
+</ul>
+
+<p><span style="font-weight: bold;">Durata de viață</span> reprezintă timpul în care variabilei îi este alocat spațiu în memorie și poate fi:</p>
+<ul>
+  <li><span style="font-weight: bold;">durată statică </span>– variabila are alocat spațiu pe tot parcursul execuției programului</li>
+  <li><span style="font-weight: bold;">durata locală </span>– variabila are alocat spațiu numai pe parcursul execuției instrucțiunilor dintr-un bloc</li>
+  <li><span style="font-weight: bold;">durata dinamică </span>– variabila se creează (i se alocă spațiu) și se distruge de către programator, în timpul executării programului</li>
+</ul>
+<p>În C++ variabile pot fi: locale, globale și dinamice. Variabile dinamice vor fi prezentate într-un alt articol, iar cele statice și dinamice în continuare.</p>
+<h3>Variabile locale</h3>
+<p>Variabilele locale se declară într-un anumit bloc al programului, în corpul unei funcții. Fie programul de mai jos:</p>
+
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td>#include &#8249;iostream&#8250;</span></td></tr>
+  <tr><td><span style="color:#ca0079">using namespace</span> std;</td></tr>
+  <tr><td><span style="color:#ca0079">void</span>F()</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #ca0079;">int</span> x;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i = <span style="color:#07a72a">5</span>;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>cout</span> &#8249;&#8249; x &#8249;&#8249; endl;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  <tr><td><span style="color:#ca0079">int</span> main()</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int</span> y = <span style="color:#07a72a">10</span> </td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F();</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &#8249;&#8249; y &#8249;&#8249; endl;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return </span><span style="color:#07a72a">0</span></td></tr>
+  <tr><td>&#125;</td></tr>
+</table>
+<p>Variabilele <span style="color:#ca0079; font-weight: bold;">x</span> și <span style="color:#ca0079; font-weight: bold;">y</span> declarate în programul de mai sus sunt locale. Variabila <span style="color:#ca0079; font-weight: bold;">x</span> poate fi utilizată numai în funcție <span style="color:#ca0079; font-weight: bold;">F()</span>, iar variabila <span style="color:#ca0079; font-weight: bold;">y</span> numai în funcția <span style="color:#ca0079; font-weight: bold;">main()</span>. Mai mult, cele două variabile ar fi putut avea același nume și nu ar fi fost nicio confuzie.</p>
+<p>Variabilele locale respectă următoarele reguli:</p>
+<ul>
+  <li>li se alocă memorie în zona de stivă
+  </li>
+  <li>sunt vizibile numai în blocul în care au fost declarate
+  </li>
+  <li>durata de viață a lor este execuția instrucțiunilor din blocul în care au fost declarate
+  </li>
+  <li>sunt inițializate cu valori aleatorii. Mai precis, standardul C++ nu garantează inițializarea lor cu o anumită valoare. Asta nu înseamnă că nu este posibil ca variabilele locale să fie inițializate de exemplu cu <span style="color:#415a77; font-weight: bold;">0</span> într-o anumită implementare a compilatorului, dar nu ne putem baza pe acest lucru. Mai mult, compilatorul utilizat pe pbInfo nu inițializează variabilele locale cu o anumită valoare
+  </li>
+</ul>
+<p><span style="font-weight: bold;">Observație</span>: Parametrii formali ai unei funcții respectă proprietățile unei variabile locale. Nu vom putea declara în blocul funcției variabile cu același nume ca al parametrilor formali.
+
+</p>
+<h3>Variabile globale</h3>
+<p>Variabilele globale se declară în afara oricărei funcții. La declarare, ele sunt inițializate cu <span style="color:#415a77; font-weight: bold;">0</span>.</p>
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td>#include &#8249;iostream&#8250;</span></td></tr>
+  <tr><td><span style="color:#ca0079">using namespace</span> std;</td></tr>
+  <tr><td><span style="color:#ca0079">int</span> x;</td></tr>
+  <tr><td><span style="color:#ca0079">void</span> F()</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &#8249;&#8249; x &#8249;&#8249; endl;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = <span style="color:#07a72a">10</span>;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;</td></tr>
+  <tr><td><span style="color:#ca0079">int</span> main()</td></tr>
+  <tr><td>&#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &#8249;&#8249; x &#8249;&#8249; <span style="color:#ca0079">" "</span> &#8249;&#8249; y &#8249;&#8249; endl; </td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x = <span style="color:#07a72a">5</span>; y = <span style="color:#07a72a">15</span></td>;</tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;F();</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout &#8249;&#8249; x &#8249;&#8249; <span style="color:#ca0079">" "</span> &#8249;&#8249; y &#8249;&#8249; endl; </td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return </span><span style="color:#07a72a">0</span></td></tr>
+  <tr><td>&#125;</td></tr>
+</table>
+<p>În programul de mai sus variabilele  <span style="color:#ca0079; font-weight: bold;">x</span> și  <span style="color:#ca0079; font-weight: bold;">y</span> sunt globale. Variabila  <span style="color:#ca0079; font-weight: bold;">x</span> poate fi utilizată atât în funcția  <span style="color:#ca0079; font-weight: bold;">main()</span> cât și in  <span style="color:#ca0079; font-weight: bold;">F()</span>, iar variabila  <span style="color:#ca0079; font-weight: bold;">y</span> numai în  <span style="color:#ca0079; font-weight: bold;">main()</span>.</p>
+<p>Variabilele globale respectă următoarele reguli:
+
+</p>
+<ul>
+  <li>li se alocă memorie în zona de date
+  </li>
+  <li>sunt vizibile în toate funcțiile care urmează în codul sursă declarării lor
+  </li>
+  <li>durata de viață a lor este execuția întregului program
+  </li>
+  <li>sunt inițializate cu valoarea 0.
+  </li>
+</ul>
+
+
+</div>
+<div id="substiv">
+  <h3>Cum funcționează stiva?</h3>
+  <p>Ne amintim că toate variabilele locale din definiția unei funcții precum și valorile parametrilor formali se memorează la apel în memoria de tip STIVĂ (STACK).
+
+  </p>
+<p>Pentru fiecare apel al unei funcții se adaugă pe stivă o zonă de memorie în care se memorează variabilele locale și parametrii pentru apelul curent. Această zonă a stivei va exista până la finalul apelului, după care se va elibera. Dacă din apelul curent se face un alt apel, al altei funcții, se adaugă pe stivă o nouă zonă de memorie, iar conținutul zonei anterioare este inaccesibil până la finalul acelui apel.
+
+</p>
+<p>Pentru a înțelege mai bine funcționarea stivei, să considerăm pentru început următoarea secvență de program:
+
+</p>
+
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td><span style="color:#ca0079">int</span>suma(<span style="color:#ca0079">int</span> a , <span style="color:#ca0079">int </span> b ) &#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int </span>S = a + b;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return </span>S;</td></tr>
+<tr><td>&#125;</td></tr>
+<tr><td><span style="color:#ca0079">int</span>main()&#123;</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int </span>a = <span style="color:#07a72a">10</span>, b = <span style="color:#07a72a">20</span></td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int </span>X = suma(a , b);</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">cout &#8249;&#8249; X;</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return </span><span style="color:#07a72a">0</span>;</td></tr>
+<tr><td>&#125;</td></tr>
+</table>
+<p>Să urmărim pas cu pas execuția acestui program:</p>
+
+<table style="background-color: #fff;text-align: center; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr>
+    <td>Pas</td>
+    <td>Conținut stivă	</td>
+    <td>Observații</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #dee2e6;">int a = 10 , b = 20;</span> </td>
+    <td><span style="background-color: #d8f3dc;">a = 10 <br>b = 20</span></td>
+    <td>Stiva conține o zonă de memorie, pentru apelul funcției <span style="color:#ca0079">main</span>. Aici sunt alocate variabile a și b și au fost inițializate.
+    </td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #dee2e6;">int X = ;</span> </td>
+    <td><span style="background-color: #d8f3dc;">a = 10<br>b = 20<br> x = ?</span></td>
+    <td>Stiva conține o zonă de memorie, pentru apelul funcției <span style="color:#ca0079">main</span>. S-a alocat memorie penru variabila <span style="color:#ca0079">X</span>, dar încă nu a primit valoare; trebuie apelată funcția <span style="color:#ca0079">suma</span>.
+    </td>
+</tr>
+  <tr>
+    <td><span style="background-color: #dee2e6;">.. = suma(a, b);</span> </td>
+    <td><span style="background-color: #d8f3dc;">a = 10<br>b = 20</span><br><span style="background-color: #ffccd5;">a = 10<br> b = 20 <br> X = ?</span></td>
+    <td>În zona “inferioară” se află variabile din <span style="color: #ca0079;">main</span>, dar sunt în acest moment inaccesibile.</td>
+</tr>
+  <tr>
+    <td><span style="background-color:#dee2e6">int S = a + b;</span></td>
+    <td><span style="background-color: #d8f3dc;">a = 10<br>b = 20<br>S = 30</span><br><span style="background-color: #ffccd5;">a = 10<br>b = 20<br>X = ?</span></td>
+    <td>Stiva are două zone de memorie. În zona curentă se află variabilele și parametrii din apelul funcției <span style="color: #ca0079;">suma</span> (s-a alocat memorie pentru variabila <span style="color: #ca0079;">S</span> și s-a inițializat).<br> În zona “inferioară” se află variabile din <span style="color: #ca0079;">main</span>, dar sunt în acest moment inaccesibile.</td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #dee2e6;">return S; </span></td>
+    <td><span style="background-color: #d8f3dc;">a = 20<br>b = 20<br> X = 30</span></td>
+    <td>Apelul funcției <span style="color: #ca0079;">suma</span> se încheie și se revine în apelul funcției <span style="color: #ca0079;">main</span>.După revenire, avem din nou o singură zona de memorie pe stivă, cu variabilele din <main. style="color: #ca0079;">main</main.>. Acum însă valoarea variabilei <span style="color: #ca0079;">X</span> este determinată. Zona de memorie unde au fost alocate variabilele locale și parametrii funcției <span style="color: #ca0079;">suma</span> a fost eliberată.
+    </td>
+  </tr>
+  <tr>
+    <td><span style="background-color: #dee2e6;">cout << X;</span></td>
+    <td><span style="background-color: #d8f3dc;">a = 10<br>v = 20<br> X = 30<br></span></td>
+    <td>Zona de stivă curentă este cea pentru apelul funcției <span style="color: #ca0079;">main</span>. Se afișează pe ecran valoarea lui <span style="color: #ca0079;">X</span>, adică <span style="color: #ca0079;">30</span>.
+    </td>
+  </tr>
+  <tr>
+    <td style="background-color: #dee2e6;">return 0</td>
+    <td><span style="background-color: #d8f3dc;"></span></td>
+    <td>Zona de stivă curentă cea pentru apelul funcției <span style="color: #ca0079;">main</span>. La terminarea programului se eliberează și ea.
+    </td>
+  </tr>
+  <tr></tr>
+</table>
+
+<iframe style="padding-top: 50px;" width="560" height="315" src="https://www.youtube.com/embed/sKf_y2Y_Y68" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+
+</div>
+
+
+</section>
+
+<section id="recursivitate">
+<h1>Recursivitate</h1>
+<p><span style="font-weight: bold;">Recursivitatea</span> reprezintă proprietatea unor noțiuni de a se defini prin ele însele.</p>
+<p>În C++, recursivitatea se realizează prin intermediul funcțiilor, care se pot autoapela.<br>Ne amintim că o funcție trebuie definită iar apoi se poate apela. Recursivitatea constă în faptul că în definiția unei funcție apare apelul ei însăși. Acest apel care apare în însăși definiția funcției, se numește autoapel. Primul apel, făcut în altă funcție, se numește apel principal.
+  </p>
+<h3>Exemplu C++</h3>
+<p>Să scriem o funcție C++ care returnează factorialul unui număr natural transmis ca parametru. Varianta nerecursivă (iterativă) este următoarea:</p>
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td><span style="color:#ca0079">int</span>fact(<span style="color:#ca0079">int</span> n ) &#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int </span>p = 1;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">for </span>(<span style="color:#ca0079">int </span>i =<span style="color: #07a72a;"> 1</span> ; i <= n ; i++)</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p = p * i;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return </span>p;</td></tr>
+<tr><td>&#125;</td></tr>
+</table>
+<p>Să observăm că această funcție determină rezultatul corect pentru valori ale lui <span style="color:#ca0079">n</span> mai mari sau egale cu <span style="color:#ca0079">0</span> (valori mici, practic <span style="color:#ca0079">n = 12 </span> ). Funcția determină corect rezultatul și pentru <span style="color:#ca0079">n #8249;= 0</span>.</p>
+<p>O variantă recursivă pentru determinarea lui <span style="color:#ca0079">n!</span>, care folosește observațiile de mai sus, este:</p>
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td><span style="color:#ca0079">int</span>fact(<span style="color:#ca0079">int</span> n ) &#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">if </span>(n == <span style="color:#07a72a">0</span>)</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return </span><span style="color:#07a72a">1</span></td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">else </span></td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">return </span>n * fact(n-1);</td></tr>
+<tr><td>&#125;</td></tr>
+</table>
+
+<h3>Cum funcționează recursivitatea?</h3>
+<p>Ne amintim că toate variabilele locale din definiția unei funcții precum și valorile parametrilor formali se memorează la apel în memoria de tip <a style="color: #415a77;" href="#substiv">STIVĂ (STACK)</a>.</p>
+<p>Pentru fiecare apel al unei funcții se adaugă pe stivă o zonă de memorie în care se memorează variabilele locale și parametrii pentru apelul curent. Această zonă a stivei va exista până la finalul apelului, după care se va elibera. Dacă din apelul curent se face un alt apel, se adaugă pe stivă o nouă zonă de memorie, iar conținutul zonei anterioare este inaccesibil până la finalul acelui apel. Aceste operații se fac la fel și dacă al doilea apel este un autoapel al unei funcții recursive.</p>
+</section>
+
+<section id="struct">
+  <h1>Structuri de date neomogene</h1>
+  <p>De multe ori datele folosite într-un program caracterizează obiecte/fenomene din realizate, iar acestea au mai multe caracteristici decât un simplu număr sau un șir de caractere. De exemplu, o persoană poate fi caracterizată prin câteva informații:  </p>
+  <ul>
+    <li>nume – șir de caractere
+    </li>
+    <li>prenume – șir de caractere
+    </li>
+    <li>sex – (M/F) probabil caracter
+    </li>
+    <li>vârsta – număr natural
+    </li>
+    <li>salariu – număr real
+    </li>
+  </ul>
+  <p>Pentru a gestiona informațiile despre o persoană avem nevoie de (cel puțin) <span style="color:#415a77; font-weight: bold;">5</span> variabile, câte una pentru fiecare informație caracteristică a persoanelor: nume, prenume, etc., iar dacă am prelucra informații despre <span style="color:#415a77; font-weight: bold;">n</span> persoane am avea nevoie de <span style="color:#415a77; font-weight: bold;">5</span> vectori cu <span style="color:#415a77; font-weight: bold;">n</span> elemente, corespunzătoare acelor persoane. Elementele vectorilor trebuie sincronizate, ceea ce devine foarte complicat și obositor. Ar fi mult mai simplu dacă am putea grupa toate aceste informații specifice unei persoane într-o singură variabilă.  </p>
+<p>Acest lucru este posibil în C/C++, folosind tipul de date <span style="color:#ca0079; font-weight: bold;">struct</span>, prin care vom defini o <span style="font-weight: bold;">structură</span>. O dată de tip structură înglobează mai multe date componente, numite <span style="font-weight: bold;">câmpuri</span> sau <span style="font-weight: bold;">membri</span> sau <span style="font-weight: bold;">date membre</span>, fiecare de un anumit tip precizat la definiția tipului structură corespunzător. Fiecare câmp memorează o anumită valoare, care poate fi tratată ca o variabilă oarecare de tipul corespunzător (i se pot aplica citiri, afișări, atribuiri, etc.).
+  <h3>Declararea unei Structuri</h3>
+  <p>Sintaxa generală a declarării unui tip de date  <span style="color:#ca0079; font-weight: bold;">struct</span> este următoarea:</p>
+</p>
+
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td><span style="color:#ca0079">struct</span> [NUME_STRUCTURA] &#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TIP1 NUME_CAMP [, NUME_CAMP[ , ... ] ] ; ]</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TIP2 NUME_CAMP [, NUME_CAMP[ , ... ] ] ; ]</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</td></tr>
+<tr><td>&#125; [LISTA DE VARIABILE];</td></tr>
+</table>
+<p>În acest mod s-a declarat un <span style="font-weight: bold;">tip de date</span> cu numele <span style="color:#ca0079">NUME_STRUCTURA</span> și eventual niște variabile de acest tip. În continuare <span style="color:#ca0079">NUME_STRUCTURA</span> poate fi folosit ca un tip de date oarecare, de exemplu pentru a declara variabile sau în lista parametrilor formali ai unei funcții.
+</p>
+<p>Pentru exemplul dat mai sus, declararea va fi:
+
+</p>
+
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td><span style="color:#ca0079">struct</span> Persoana &#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">char</span> nume[<span style="color:#07a72a">21</span>], prenume[<span style="color:#07a72a">21</span>], sex;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int</span> varsta;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">double</span> salariu;</td></tr>
+<tr><td>&#125;;</td></tr>
+</table>
+<h3>Variabile de tip structură
+</h3>
+<p>În exemplul de mai sus s-a declarat o structură cu numele <span style="color:#ca0079">Persoana</span>, dar nu s-a declarat nicio variabilă de acest tip. Pentru a declara variabile de tip <span style="color:#ca0079">Persoana</span> putem să le adăugăm la declararea structurii:
+
+</p>
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td><span style="color:#ca0079">struct</span> Persoana &#123;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">char</span> nume[<span style="color:#07a72a">21</span>], prenume[<span style="color:#07a72a">21</span>], sex;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">int</span> varsta;</td></tr>
+  <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ca0079">double</span> salariu;</td></tr>
+<tr><td>&#125;A, B;</td></tr>
+</table>
+<p>(am declarat odată cu tipul de date <span style="color:#ca0079">Persoana</span> și două variable <span style="color:#ca0079">A</span> și <span style="color:#ca0079">B</span> de acest tip), sau putem să le declarăm ulterior declarării tipului de date, astfel:
+
+</p>
+<p>Această declarare este corectă în C++, dar nu este corectă în C:
+</p>
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td>Persoana A, B;</td></tr>
+</table>
+<p>sau</p>
+<p>Această declarare este corectă atât în C++ cât și în C:
+</p>
+<table style="background-color: #fff;text-align: left; margin-left: auto; margin-right: auto;width: 50%;color: black; ">
+  <tr><td><span style="color:#ca0079">struct</span> Persoana A, B;</td></tr>
+</table>
+<p>În declarările de mai sus avem următoarele:
+
+</p>
+<ul>
+  <li><span style="color:#ca0079">Persoana</span> – este un tip de date, similar cu <span style="color:#ca0079">int</span> sau <span style="color:#ca0079">char</span>;
+  </li>
+  <li><span style="color:#ca0079">A</span> și <span style="color:#ca0079">B</span> – sunt nume de variabile. Tipul acestor variabile este <span style="color:#ca0079">Persoana</span> sau, mai explicit, <span style="color:#ca0079">struct Persoana</span>;
+  </li>
+  <li><span style="color:#ca0079">nume, prenume, sex, varsta, salariu</span> – sunt numele unor câmpuri ale structurii <span style="color:#ca0079">Persoana</span>. Ele pot fi utilizate într-un program doar dacă există variabile de tip <span style="color:#ca0079">Persoana</span>!
+  </li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZdtckHCd5RI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</section>
+<div  style="width: 100%; background-color: #FFF; height: 100px;"></div>
+<footer style="padding-top: 100px;font-weight: lighter; background-color: #415a77; color: #FFF; text-align: center;">
+  <h5>Popa Robert</h5>
+  <h5>Liceul Teoretic Jean Monnet</h5>
+</footer>
+      
+</body>
+</html>
+
+
+

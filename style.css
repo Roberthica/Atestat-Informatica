@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+ 
+  
+  header{
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
+    background-color: #778da9;
+  }
+  
+  header .brand{
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  
+  header .navigation{
+    position: relative;
+  }
+  
+  header .navigation .navigation-items a{
+    position: relative;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+  }
+  
+  header .navigation .navigation-items a:before{
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+  }
+  
+  header .navigation .navigation-items a:hover:before{
+    width: 100%;
+  }
+
+.flex-container{
+  display: flex;
+  justify-content: center;
+  background-color: #778da9;
+  text-align: center;
+}
+.flex-container img{
+  padding-top: 100px;
+  text-align: center;
+}
+.flex-container p{
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+.flex-container h1{
+  padding-top: 150px;
+  color: #fff;
+  text-align: center;
+}
+
+.button {
+  --color: #fff;
+  padding: 0.8em 1.7em;
+  background-color: transparent;
+  border-radius: .3em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .5s;
+  font-weight: 400;
+  font-size: 17px;
+  border: 1px solid;
+  font-family: inherit;
+  text-transform: uppercase;
+  color: var(--color);
+  z-index: 1;
+ }
+ 
+ .button::before, .button::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+  background-color: var(--color);
+  transition: 1s ease;
+ }
+ 
+ .button::before {
+  top: -1em;
+  left: -1em;
+ }
+ 
+ .button::after {
+  left: calc(100% + 1em);
+  top: calc(100% + 1em);
+ }
+ 
+ .button:hover::before, .button:hover::after {
+  height: 410px;
+  width: 410px;
+ }
+ 
+ .button:hover {
+  color: #1b263b;
+ }
+ 
+ .button:active {
+  filter: brightness(.8);
+ }
+ 
+
+section.no1{
+  text-align: center;
+  padding: 170px 170px;
+  color: #1b263b;
+}
+
+.cuprins a{
+  font-size:large;
+  text-decoration: none;
+  color: #1b263b;
+}
+.cuprins ul{
+  /* padding-left: 50px; */
+  list-style: inside;
+  font-weight: normal;
+}
+ol li{
+  padding-top: 15px;
+}
+OL li.ol{
+  list-style: inside decimal;
+  font-size: larger;
+  font-weight: bold;
+}
+
+
+section#subprograme{
+  color: white;
+  background-color: #778da9;
+  text-align: center;
+  padding-left: 170px;
+  padding-right: 170px;
+}
+section#subprograme h1{
+  text-align: center;
+  font-weight: normal;
+  padding-bottom:15px ;
+}
+section#subprograme h2{
+  font-weight: normal;
+  padding-bottom: 15px;
+}
+section#subprograme p{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+section#subprograme h3{
+  font-weight: normal;
+}
+section#subprograme ul{
+  list-style: inside;
+  padding-bottom: 15px;
+}
+
+section#recursivitate{
+  color: white;
+  background-color: #778da9;
+  text-align: center;
+  padding-left: 170px;
+  padding-right: 170px;
+}
+section#recursivitate h1{
+  text-align: center;
+  font-weight: normal;
+  padding-bottom:15px ;
+  padding-top: 50px;
+}
+section#recursivitate h2{
+  font-weight: normal;
+  padding-bottom: 15px;
+}
+section#recursivitate p{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+section#recursivitate h3{
+  font-weight: normal;
+}
+section#recursivitate ul{
+  list-style: inside;
+  padding-bottom: 15px;
+}
+
+
+section#struct{
+  color: white;
+  background-color: #778da9;
+  text-align: center;
+  padding-left: 170px;
+  padding-right: 170px;
+}
+section#struct h1{
+  text-align: center;
+  font-weight: normal;
+  padding-bottom:15px ;
+  padding-top: 50px;
+}
+section#struct h2{
+  font-weight: normal;
+  padding-bottom: 15px;
+}
+section#struct p{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+section#struct h3{
+  font-weight: normal;
+}
+section#struct ul{
+  list-style: inside;
+  padding-bottom: 15px;
+}
+
+
+
+
